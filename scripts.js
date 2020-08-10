@@ -38,6 +38,7 @@ function test4() {
 
 //logs id of hovered over cell only while clicked.
 function test5() {
+    console.log("Test 5");
     var mouseDown = false;
     window.addEventListener('mousedown', function () { mouseDown = true })
     window.addEventListener('mouseup', function () { mouseDown = false })
@@ -51,6 +52,7 @@ function test5() {
 
 //changes color of hovered over cell while mouse is down.
 function test6() {
+    console.log("Test 6");
     var mouseDown = false;
     window.addEventListener('mousedown', function () { mouseDown = true })
     window.addEventListener('mouseup', function () { mouseDown = false })
@@ -83,6 +85,7 @@ function test7() {
     })
 }
 
+//change color of hovered cell while mouse is down AND changing color if runs into a different colored cell.
 function test8() {
     console.log("Test 8");
     document.getElementById("cell-3-4").style.backgroundColor = "rgb(0,0,0)";
@@ -124,17 +127,17 @@ function test8() {
 
 //code start
 function start() {
-            console.log("starting scripts.");
-            generateGrid()
-            loadLevel()
-        }
+    console.log("starting scripts.");
+    generateGrid()
+    loadLevel()
+}
 
 function generateGrid() {
-            console.log("generating grid.");
-            for (var i = 0; i < gridSize; i++) {
-                const div = document.createElement('div');
-                div.setAttribute("id", "row-" + i)
-                div.innerHTML = `
+    console.log("generating grid.");
+    for (var i = 0; i < gridSize; i++) {
+        const div = document.createElement('div');
+        div.setAttribute("id", "row-" + i)
+        div.innerHTML = `
             <div id="cell-`+ i + `-1" class="cell"></div>
             <div id="cell-`+ i + `-2" class="cell"></div>
             <div id="cell-`+ i + `-3" class="cell"></div>
@@ -144,11 +147,11 @@ function generateGrid() {
             <div id="cell-`+ i + `-7" class="cell"></div>
             <div id="cell-`+ i + `-8" class="cell"></div>
         `;
-                document.getElementById('row').appendChild(div);
-            }
-            console.log("grid finished generated.");
-        }
+        document.getElementById('row').appendChild(div);
+    }
+    console.log("grid done generated.");
+}
 
 function loadLevel() {
-            console.log("no levels to load.");
-        }
+    console.log("no levels to load.");
+}
