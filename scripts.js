@@ -113,7 +113,7 @@ function test8() {
         console.log("current color: " + currentColor);
         console.log(gray);
 
-        if (currentColor == green) {
+        if (currentColor != gray) {
             initialColor = currentColor;
             document.getElementById(currentId).style.backgroundColor = currentColor;
         } else {
