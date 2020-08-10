@@ -1,17 +1,12 @@
-////////////////////
-//global variables//
-////////////////////
-
+//global variables
 var gridSize = 8;
 
-/////////////////////////
-//functions for testing//
-/////////////////////////
-
+//functions for testing
+//
 //changes color of 1-1
 function test1() {
     console.log("Test");
-    document.getElementById("cell-0-1").style.backgroundColor = "black";
+    document.getElementById("cell-0-1").style.backgroundColor = "rgb(0,0,0)";
 }
 
 //logs id of clicked cell.
@@ -28,7 +23,7 @@ function test3() {
     document.addEventListener('click', function (e) {
         var clicked = e.target.id
         console.log(clicked);
-        document.getElementById(clicked).style.backgroundColor = "black";
+        document.getElementById(clicked).style.backgroundColor = "rgb(0,0,0)";
     }, false);
 }
 
@@ -65,14 +60,14 @@ function test6() {
         }
         var current = e.target.id;
         console.log(current);
-        document.getElementById(current).style.backgroundColor = "black";
+        document.getElementById(current).style.backgroundColor = "rgb(0,0,0)";
     })
 }
 
-//changes color of first tile and logs color of current hovered cell. (except it doesnt for some reaason...)
+//changes color of first tile and logs color of current hovered cell.
 function test7() {
     console.log("Test 7");
-    document.getElementById("cell-0-1").style.backgroundColor = "black";
+    document.getElementById("cell-0-1").style.backgroundColor = "rgb(0,0,0)";
 
     var mouseDown = false;
     window.addEventListener('mousedown', function () { mouseDown = true })
@@ -82,7 +77,8 @@ function test7() {
             return;
         }
         var current = e.target.id;
-        var currentColor = document.getElementById(current).style.backgroundColor;
+        var elem = document.getElementById(current);
+        var currentColor= window.getComputedStyle(elem, null).getPropertyValue("background-color");
         console.log(currentColor);
     })
 }
@@ -91,6 +87,7 @@ function test7() {
 function start() {
     console.log("starting scripts.");
     generateGrid()
+    loadLevel()
 }
 
 function generateGrid() {
@@ -111,4 +108,8 @@ function generateGrid() {
         document.getElementById('row').appendChild(div);
     }
     console.log("grid finished generated.");
+}
+
+function loadLevel() {
+    console.log("no levels to load.");
 }
