@@ -58,3 +58,20 @@ function test6() {
         document.getElementById(current).style.backgroundColor = "black";
     })
 }
+
+function test7() {
+    console.log("Test 7");
+    document.getElementById("cell-1-1").style.backgroundColor = "black";
+
+    var mouseDown = false;
+    window.addEventListener('mousedown', function () { mouseDown = true })
+    window.addEventListener('mouseup', function () { mouseDown = false })
+    window.addEventListener('mousemove', function (e) {
+        if (!mouseDown) {
+            return;
+        }
+        var current = e.target.id;
+        var currentColor = document.getElementById(current).style.backgroundColor;
+        console.log(currentColor);
+    })
+}
