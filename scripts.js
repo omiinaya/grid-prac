@@ -1,8 +1,43 @@
 //global variables
 var gridSize = 8;
 
+//loads necessary functions.
+function start() {
+    console.log("starting scripts.");
+    generateGrid()
+    loadLevel()
+}
+
+//generates grid for our level to load.
+function generateGrid() {
+    console.log("generating grid.");
+    for (var i = 0; i < gridSize; i++) {
+        const div = document.createElement('div');
+        div.setAttribute("id", "row-" + i)
+        div.innerHTML = `
+            <div id="cell-`+ i + `-1" class="cell"></div>
+            <div id="cell-`+ i + `-2" class="cell"></div>
+            <div id="cell-`+ i + `-3" class="cell"></div>
+            <div id="cell-`+ i + `-4" class="cell"></div>
+            <div id="cell-`+ i + `-5" class="cell"></div>
+            <div id="cell-`+ i + `-6" class="cell"></div>
+            <div id="cell-`+ i + `-7" class="cell"></div>
+            <div id="cell-`+ i + `-8" class="cell"></div>
+        `;
+        document.getElementById('row').appendChild(div);
+    }
+    console.log("grid done generated.");
+}
+
+//will load level data when we get that far.
+function loadLevel() {
+    console.log("no levels to load... yet.");
+}
+
+//
 //functions for testing
 //
+
 //changes color of 1-1
 function test1() {
     console.log("Test");
@@ -96,7 +131,7 @@ function test8() {
     var initialElem;
     var initialColor;
     var gray = "rgb(128, 128, 128)";
-    var green = "rgb(0, 128, 0)";
+    //var green = "rgb(0, 128, 0)";
     window.addEventListener('mousedown', function (e) {
         initialId = e.target.id;
         initialElem = document.getElementById(initialId);
@@ -125,33 +160,37 @@ function test8() {
     })
 }
 
-//code start
-function start() {
-    console.log("starting scripts.");
-    generateGrid()
-    loadLevel()
-}
+//logging current color and last color on mouse down.
+function test9() {
+    console.log("Test 9");
+    document.getElementById("cell-3-4").style.backgroundColor = "rgb(0,0,0)";
+    document.getElementById("cell-3-6").style.backgroundColor = "rgb(0,128,0)";
 
-function generateGrid() {
-    console.log("generating grid.");
-    for (var i = 0; i < gridSize; i++) {
-        const div = document.createElement('div');
-        div.setAttribute("id", "row-" + i)
-        div.innerHTML = `
-            <div id="cell-`+ i + `-1" class="cell"></div>
-            <div id="cell-`+ i + `-2" class="cell"></div>
-            <div id="cell-`+ i + `-3" class="cell"></div>
-            <div id="cell-`+ i + `-4" class="cell"></div>
-            <div id="cell-`+ i + `-5" class="cell"></div>
-            <div id="cell-`+ i + `-6" class="cell"></div>
-            <div id="cell-`+ i + `-7" class="cell"></div>
-            <div id="cell-`+ i + `-8" class="cell"></div>
-        `;
-        document.getElementById('row').appendChild(div);
-    }
-    console.log("grid done generated.");
-}
+    var mouseDown = false;
+    var initialElem;
+    var initialColor;
+    var lastColor = "None";
+    var gray = "rgb(128, 128, 128)";
+    window.addEventListener('mousedown', function (e) {
+        initialElem = document.getElementById(e.target.id);
+        initialColor = window.getComputedStyle(initialElem, null).getPropertyValue("background-color");
+        mouseDown = true
+    })
+    window.addEventListener('mouseup', function () {
+        mouseDown = false
+    })
+    window.addEventListener('mousemove', function (e) {
+        if (!mouseDown) {
+            return;
+        }
+        var currentElem = document.getElementById(e.target.id);
+        var currentColor = window.getComputedStyle(currentElem, null).getPropertyValue("background-color");
 
-function loadLevel() {
-    console.log("no levels to load.");
+        if (currentColor != initialColor) {
+            lastColor = initialColor;
+            initialColor = currentColor;
+            console.log("last color: "+lastColor);
+            console.log("current color: "+currentColor);
+        }
+    })
 }
