@@ -26,12 +26,12 @@ function generateGrid() {
         `;
         document.getElementById('row').appendChild(div);
     }
-    console.log("grid done generated.");
+    console.log("grid done generating.");
 }
 
 //will load level data when we get that far.
 function loadLevel() {
-    console.log("no levels to load... yet.");
+    console.log("currently no levels to load.");
 }
 
 //
@@ -40,7 +40,7 @@ function loadLevel() {
 
 //changes color of 1-1
 function test1() {
-    console.log("Test");
+    console.log("Test 1");
     document.getElementById("cell-0-1").style.backgroundColor = "rgb(0,0,0)";
 }
 
@@ -194,4 +194,47 @@ function test9() {
             console.log("current color: "+initialColor);
         }
     })
+}
+
+function test10() {
+    console.log("Test 10");
+    document.getElementById("cell-3-4").style.backgroundColor = "rgb(0,0,0)";
+    document.getElementById("cell-3-6").style.backgroundColor = "rgb(0,128,0)";
+
+    var mouseDown = false;
+    var initialElem;
+    var initialColor;
+    var lastColor = "None";
+    var gray = "rgb(128, 128, 128)";
+    window.addEventListener('mousedown', function (e) {
+        initialElem = document.getElementById(e.target.id);
+        initialColor = window.getComputedStyle(initialElem, null).getPropertyValue("background-color");
+        mouseDown = true
+    })
+    window.addEventListener('mouseup', function () {
+        mouseDown = false
+    })
+    window.addEventListener('mousemove', function (e) {
+        if (!mouseDown) {
+            return;
+        }
+        var currentElem = document.getElementById(e.target.id);
+        var currentColor = window.getComputedStyle(currentElem, null).getPropertyValue("background-color");
+
+        if (currentColor != initialColor) {
+            lastColor = initialColor;
+            initialColor = currentColor;
+            console.log("last color: "+lastColor);
+        } else {
+            console.log("current color: "+initialColor);
+        }
+    })
+}
+
+function test11() {
+    return 1;
+}
+
+function test12(x) {
+    return x+2;
 }
