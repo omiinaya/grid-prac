@@ -190,7 +190,8 @@ function test9() {
             lastColor = initialColor;
             initialColor = currentColor;
             console.log("last color: "+lastColor);
-            console.log("current color: "+currentColor);
+        } else {
+            console.log("current color: "+initialColor);
         }
     })
 }
