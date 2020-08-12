@@ -9,24 +9,30 @@ function start() {
 }
 
 //generates grid for our level to load.
-function generateGrid() {
+function generateRows() {
     console.log("generating grid.");
-    for (var i = 0; i < gridSize; i++) {
+    for (var i = 1; i < gridSize + 1; i++) {
         const div = document.createElement('div');
         div.setAttribute("id", "row-" + i)
         div.innerHTML = `
             <div id="cell-`+ i + `-1" class="cell"></div>
-            <div id="cell-`+ i + `-2" class="cell"></div>
-            <div id="cell-`+ i + `-3" class="cell"></div>
-            <div id="cell-`+ i + `-4" class="cell"></div>
-            <div id="cell-`+ i + `-5" class="cell"></div>
-            <div id="cell-`+ i + `-6" class="cell"></div>
-            <div id="cell-`+ i + `-7" class="cell"></div>
-            <div id="cell-`+ i + `-8" class="cell"></div>
         `;
         document.getElementById('row').appendChild(div);
     }
-    console.log("grid done generating.");
+}
+
+function generateCols() {
+    for (var j = 1; j < gridSize+1; j++) {
+        var x = 2;
+        for (var i = 1; i < gridSize; i++) {
+            const div = document.createElement('div');
+            div.setAttribute("id", "cell-"+j+"-" + x)
+            div.setAttribute("class", "cell")
+            div.innerHTML = ``;
+            document.getElementById('row-' + j).appendChild(div);
+            x++;
+        }
+    }
 }
 
 //will load level data when we get that far.
@@ -189,9 +195,9 @@ function test9() {
         if (currentColor != initialColor) {
             lastColor = initialColor;
             initialColor = currentColor;
-            console.log("last color: "+lastColor);
+            console.log("last color: " + lastColor);
         } else {
-            console.log("current color: "+initialColor);
+            console.log("current color: " + initialColor);
         }
     })
 }
@@ -224,17 +230,19 @@ function test10() {
         if (currentColor != initialColor) {
             lastColor = initialColor;
             initialColor = currentColor;
-            console.log("last color: "+lastColor);
+            console.log("last color: " + lastColor);
         } else {
-            console.log("current color: "+initialColor);
+            console.log("current color: " + initialColor);
         }
     })
 }
 
+//simple return statement 
 function test11() {
     return 1;
 }
 
+//simple function that receives a value. (passing test11() as a value works.)
 function test12(x) {
-    return x+2;
+    return x + 2;
 }
