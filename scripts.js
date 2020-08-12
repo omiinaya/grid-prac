@@ -1,5 +1,5 @@
 //global variables
-var gridSize = 12;
+var gridSize = 8;
 
 //loads necessary functions.
 function start() {
@@ -53,7 +53,7 @@ function loadLevel() {
 //changes color of 1-1
 function test1() {
     console.log("Test 1");
-    document.getElementById("cell-0-1").style.backgroundColor = "rgb(0,0,0)";
+    document.getElementById("cell-1-1").style.backgroundColor = "rgb(0,0,0)";
 }
 
 //logs id of clicked cell.
