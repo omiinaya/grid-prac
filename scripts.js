@@ -1,11 +1,17 @@
 //global variables
-var gridSize = 8;
+var gridSize = 12;
 
 //loads necessary functions.
 function start() {
     console.log("starting scripts.");
     generateGrid()
     loadLevel()
+}
+
+function generateGrid() {
+    generateRows()
+    generateCols()
+    console.log("Grid is done generating.");
 }
 
 //generates grid for our level to load.
