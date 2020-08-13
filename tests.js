@@ -194,22 +194,26 @@ function test10() {
 
 //simple return statement which i'm trying to pass as a parameter.
 function test11() {
+    console.log("Test 11");
     return 1;
 }
 
 //simple function that receives a value. (passing test11() as a value works.)
 function test12(x) {
+    console.log("Test 12");
     return x + 2;
 }
 
 //logging an array of all cells.
 function test13() {
+    console.log("Test 13");
     var x = document.getElementsByClassName("cell")
     console.log(x);
 }
 
 //logging each cell in a different line.
 function test14() {
+    console.log("Test 14");
     for (var i = 0; i < gridSize * gridSize; i++) {
         var x = document.getElementsByClassName("cell")[i]
         console.log(x);
@@ -218,12 +222,21 @@ function test14() {
 
 //turning all tiles in the board gray.
 function test15() {
+    console.log("Test 15");
     for (var i = 0; i < gridSize * gridSize; i++) {
         var cell = document.getElementsByClassName("cell")[i]
         cell.style.backgroundColor = "rgb(128, 128, 128)";
     }
 }
 
+//checking the reuslt of logging element by className.
 function test16() {
+    console.log("Test 16");
     console.log(document.getElementsByClassName("board-container"));
+}
+
+//we learned it returns an array of all elements with that class name. so to log the first one, we log element [0]
+function test17() {
+    console.log("Test 10");
+    console.log(document.getElementsByClassName("board-container")[0]);
 }
