@@ -156,6 +156,7 @@ function test9() {
     })
 }
 
+//logging last color and current color.
 function test10() {
     console.log("Test 10");
     document.getElementById("cell-3-4").style.backgroundColor = "rgb(0,0,0)";
@@ -191,7 +192,7 @@ function test10() {
     })
 }
 
-//simple return statement 
+//simple return statement which i'm trying to pass as a parameter.
 function test11() {
     return 1;
 }

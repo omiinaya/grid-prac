@@ -13,9 +13,17 @@ function start() {
 
 function generateGrid() {
     console.log("generating grid.");
+
+    const div = document.createElement('div');
+    div.setAttribute("class", "row")
+    div.setAttribute("id", "row")
+    div.innerHTML = ``;
+    document.getElementById('canvas').appendChild(div);
+
     generateRows()
     generateCols()
-    console.log("grid is done generating.");
+    
+    console.log("grid done generating.");
 }
 
 //generates grid for our level to load.
