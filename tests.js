@@ -223,3 +223,7 @@ function test15() {
         cell.style.backgroundColor = "rgb(128, 128, 128)";
     }
 }
+
+function test16() {
+    console.log(document.getElementsByClassName("board-container"));
+}
