@@ -200,3 +200,25 @@ function test11() {
 function test12(x) {
     return x + 2;
 }
+
+//logging an array of all cells.
+function test13() {
+    var x = document.getElementsByClassName("cell")
+    console.log(x);
+}
+
+//logging each cell in a different line.
+function test14() {
+    for (var i = 0; i < gridSize * gridSize; i++) {
+        var x = document.getElementsByClassName("cell")[i]
+        console.log(x);
+    }
+}
+
+//turning all tiles in the board gray.
+function test15() {
+    for (var i = 0; i < gridSize * gridSize; i++) {
+        var cell = document.getElementsByClassName("cell")[i]
+        cell.style.backgroundColor = "rgb(128, 128, 128)";
+    }
+}

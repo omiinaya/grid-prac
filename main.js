@@ -1,6 +1,10 @@
 //global variables
 var gridSize = 8;
 
+document.addEventListener('DOMContentLoaded', function (event) {
+    start()
+})
+
 //loads necessary functions.
 function start() {
     console.log("starting scripts.");
@@ -27,15 +31,22 @@ function generateRows() {
 }
 
 function generateCols() {
-    for (var j = 1; j < gridSize+1; j++) {
+    for (var j = 1; j < gridSize + 1; j++) {
         var x = 2;
         for (var i = 1; i < gridSize; i++) {
             const div = document.createElement('div');
-            div.setAttribute("id", "cell-"+j+"-" + x)
+            div.setAttribute("id", "cell-" + j + "-" + x)
             div.setAttribute("class", "cell")
             div.innerHTML = ``;
             document.getElementById('row-' + j).appendChild(div);
             x++;
         }
+    }
+}
+
+function clearGrid() {
+    for (var i = 0; i < gridSize * gridSize; i++) {
+        var cell = document.getElementsByClassName("cell")[i]
+        cell.style.backgroundColor = "rgb(128, 128, 128)";
     }
 }

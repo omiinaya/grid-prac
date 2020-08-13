@@ -1,5 +1,8 @@
+.board-container {
+    text-align: center;
+}
+
 .row {
-    border: 1px solid black;
     font-size: 0;
 }
 
@@ -11,8 +14,4 @@
     background-color: gray;
     margin: 0px;
     padding: 0px;
-}
-
-.test {
-    background-color: black;
 }
