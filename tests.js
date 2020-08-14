@@ -85,7 +85,6 @@ function test8() {
     console.log("Test 8");
     document.getElementById("cell-3-4").style.backgroundColor = "rgb(0,0,0)";
     document.getElementById("cell-3-6").style.backgroundColor = "rgb(0,128,0)";
-    document.getElementById("cell-5-7").style.backgroundColor = "rgb(255, 0, 0)";
 
     var mouseDown = false;
     var initialId;
@@ -240,8 +239,4 @@ function test16() {
 function test17() {
     console.log("Test 10");
     console.log(document.getElementsByClassName("board-container")[0]);
-}
-
-function test18() {
-    alert("Hello World.");
 }
